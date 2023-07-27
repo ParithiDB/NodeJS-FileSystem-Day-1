@@ -23,9 +23,10 @@ FilesRouter.get('/createFile', async (request, response, next) => {
   FilesRouter.post('/createCustomFile', async (request, response, next) => {
     const { content } = request.body;
     await fs.writeFile('./files/k.txt', content);
-    console.log("File Posted")
+    console.log("File Posted content:", content);
     return response.status(200).json({
       message: 'File created',
+      content: content
     });
   });
   

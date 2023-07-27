@@ -8,7 +8,7 @@ HTTP_SERVER.use(bodyParser.urlencoded({ extended: false }))
 
 HTTP_SERVER.use(bodyParser.json())
 
-HTTP_SERVER.listen(port, 'localhost', () => {
+HTTP_SERVER.listen(port, '0.0.0.0', () => {
   console.log('SERVER STARTED', port);
 });
 
