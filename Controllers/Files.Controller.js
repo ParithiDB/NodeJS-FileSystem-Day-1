@@ -10,6 +10,7 @@ FilesRouter.get('/createFile', async (request, response, next) => {
       console.log(data);
       return response.status(200).json({
         message: 'Request hit',
+        DateandTime: content,
       });
     } catch(err) {
       console.log(err);
