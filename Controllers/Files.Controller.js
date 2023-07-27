@@ -1,9 +1,11 @@
 const FilesRouter = require('express').Router();
 const fs = require('fs/promises');
+const moment = require('moment-timezone');
 
 FilesRouter.get('/createFile', async (request, response, next) => {
     try {
-      const content = new Date().toString().replace(/[:.]/g,'-');
+      const currentTimeIST = moment().tz('Asia/Kolkata').format('ddd MMM DD YYYY HH-mm-ss [GMT]ZZ');
+      const content = currentTimeIST.toString().replace(/[:.]/g,'-');
       await fs.writeFile(`./files/${content}.txt`, content);
       console.log('REQUEST HIT');
       const data = await fs.readFile(`./files/${content}.txt`, { encoding: 'utf8' });
